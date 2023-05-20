@@ -38,13 +38,17 @@ def replace_logs_with_humanreadable_timestamp(original_string, original_time,act
     
 file1 = open("log.txt", "r")
 get_file_contents = file1.read()
-get_timestamp = extract_timestamp(file1.read())
-
-array = get_file_contents.split("delimeter")
-for original_contents in get_file_contents.splitlines():
-    print(replace_logs_with_humanreadable_timestamp(original_contents,
-                                                           extract_timestamp(original_contents),
-                                                          return_human_readable(extract_timestamp(original_contents))))
+for original_contents in get_file_contents.splitlines(): 
+    """
+    We are grabbing the original contents from the file and splitting every new line.
+    Using splitlines, we are iterating through every line and using the replace_Logs_with_humanreadable_timestamp to generate more 
+    meaningful logs for every line we send to this function and print output
+   
+    """
+    final_output = replace_logs_with_humanreadable_timestamp(original_contents,
+                                                    extract_timestamp(original_contents),
+                                                    return_human_readable(extract_timestamp(original_contents)))
+    print(final_output)
     
 file1.close()
 
